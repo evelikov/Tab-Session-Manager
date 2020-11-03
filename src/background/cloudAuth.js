@@ -1,7 +1,7 @@
 import browser from "webextension-polyfill";
 import axios from "axios";
 import log from "loglevel";
-import { clientId } from "../credentials";
+//import { clientId } from "../credentials";
 import { getSettings, setSettings } from "../settings/settings";
 
 const logDir = "background/cloudAuth";
@@ -45,7 +45,8 @@ const getAuthTokens = async (email = "") => {
   const redirectUri = browser.identity.getRedirectURL();
   const authURL =
     "https://accounts.google.com/o/oauth2/v2/auth" +
-    `?client_id=${clientId}` +
+    //`?client_id=${clientId}` +
+    "?client_id=FancyclientId" +
     "&response_type=token" +
     `&redirect_uri=${encodeURIComponent(redirectUri)}` +
     `&scope=${encodeURIComponent(scopes.join(" "))}` +
